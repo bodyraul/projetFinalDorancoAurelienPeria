@@ -1,0 +1,174 @@
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+    "nom":"peria",
+    "prenom":"guinba",
+    "pseudonyme":"guigui",
+    "email" : "guina.peria@gmail.com",
+    "password" : "123456"
+}
+
+###
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email" : "aurelien.peria@gmail.com",
+    "password" : "123456"
+}
+
+
+###
+POST http://localhost:5000/post/creerPost
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjMwNTYwOX0.LBBzBuINVOcvWAJ3QNnw2x27OKeslMF407doytOxjaQ
+
+{
+    "titre":"boby1",
+    "description":"boby1"
+}
+
+###
+GET  http://localhost:5000/post/
+Content-Type: application/json
+
+###
+GET  http://localhost:5000/post/accesPost
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDlkZGVjNTM3ZDc4NWY2NmMwOTU5NSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NTg4MDAwOX0.sjwEOoJ_Id9yPEmlAGFLOC4uTpC3Opg5VpdTBWWL80c
+
+###
+GET  http://localhost:5000/post/monPoste/634ae5f5fc02208be5df0076
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwYTAwNWEwYjkyYWQ3YmMwZWQ4NyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NjEwNTE0M30.oRYEebwTLFPKrLBa6Vtj-bM5e4IBibTjH7LObgJ6EX4
+
+###
+POST http://localhost:5000/message/creerMessage/635296834e52752dc3866612
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjM5MTE4OX0.CsyTMPU9Iy2FUQbB930orzvkOvdwGudrfxirVn7XA2I
+
+{
+    "contenu": "bbbbbb"
+}
+
+###
+GET  http://localhost:5000/message/afficherAllMessage
+Content-Type: application/json
+
+###
+GET  http://localhost:5000/message/afficherMesMessages/635296834e52752dc3866612
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjM2NDIyNX0.MNmQCUaQv9yh4Du4zsRzVJCg54wEj7qpFvgE_bKhx5E
+
+###
+PUT  http://localhost:5000/post/modifierPost/634c54637e59aed9ad8e6441
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjAxODA2OH0.IAEGoiz8xJgfqJLy3-mrahvqqH4hWMg3lzMtj8wrxyI
+
+
+
+###
+DELETE   http://localhost:5000/post/supprimerPost/634ae5d5fc02208be5df006c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwYTAwNWEwYjkyYWQ3YmMwZWQ4NyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NTkyODYyN30.8p8E29ZDBTXtutNYvtLIRTsSguRLPLtXsrUIJYzF-iQ
+
+###
+Get http://localhost:5000/admin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NTk0MjcwMH0.toLrzCIJ500BqzjoGZ2A5kMsr6VetHhNWQmg8JitFF8
+
+###
+POST  http://localhost:5000/admin/banUser/634ff3c80f75966761ed22b7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjE4NDgxNX0.p3FdS4ISfnkA_HqVxEthNS8ohs9G7m1Xaf-hl68a8HU
+
+###
+POST  http://localhost:5000/admin/unbanUser/634ff3c80f75966761ed22b7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjE4NDgxNX0.p3FdS4ISfnkA_HqVxEthNS8ohs9G7m1Xaf-hl68a8HU
+
+###
+Get http://localhost:5000/admin/allPost
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NTk0MjcwMH0.toLrzCIJ500BqzjoGZ2A5kMsr6VetHhNWQmg8JitFF8
+
+###
+POST  http://localhost:5000/admin/modifPost/634c50490863ed10567c445e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NTk0MjcwMH0.toLrzCIJ500BqzjoGZ2A5kMsr6VetHhNWQmg8JitFF8
+
+
+
+###
+DELETE  http://localhost:5000/admin/deletePost/634c54dd7e59aed9ad8e6452
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NTk0Njk5Nn0.lBBKohFv0x1P-pqswDjmt5gw6t3IiDSO9mYaslWkrZs
+
+###
+POST   http://localhost:5000/admin/rechercheUser
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NTk0Njk5Nn0.lBBKohFv0x1P-pqswDjmt5gw6t3IiDSO9mYaslWkrZs
+
+{
+    "pseudonyme": "bobyraul"
+}
+
+###
+POST   http://localhost:5000/signalement/signalementMessage/6351ce79a1d73fd4d335a5bd
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3YjFjMzc4MGQ1ZWU4Y2EwOGVlMyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjIyMzQ4MH0.fy_gz3L23kiJrzVApRMmHydzRCGH-j0jVREPtkeNX_o
+###
+POST   http://localhost:5000/signalement/signalementPost/634f785589d20f1045110692
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjEwNTQ3OH0.6UKzhNhF3m7PQtptuPezNDeqzGgREz3DnfgIgXN2FGA
+
+###
+Get   http://localhost:5000/signalement/nombreMessageSignaler
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjAxMzU3N30.90PeLoO1kHr9I5tdg04xNSq_yQqowfJn5-A2-vCNe04
+
+###
+Get   http://localhost:5000/signalement/nombrePostSignaler
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+POST   http://localhost:5000/signalement/nbFoisMsgSignaler/634d8b4916d44e0d07b13bbd
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+POST   http://localhost:5000/signalement/nbFoisPostSignaler/634c54637e59aed9ad8e6441
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+GET    http://localhost:5000/signalement/afficherMsgSignaler
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+GET    http://localhost:5000/signalement/afficherPostSignaler
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+GET    http://localhost:5000/signalement/afficherMsgSignaler/634ebfc990a65007eddc4a40
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+GET    http://localhost:5000/signalement/afficherPostSignaler/634e0968079886f8f0f1f7aa
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+DELETE   http://localhost:5000/signalement/supprimerSignalementMsg/634ebfc990a65007eddc4a40
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA0ODQ1MH0.xRtIfM9Z9zP1GHIuEH_JBVKUk6_RUUzNUwTdaw1e2ek
+
+###
+DELETE   http://localhost:5000/signalement/supprimerSignalementPost/634e0968079886f8f0f1f7aa
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA1ODExNH0.Xub-S_Qtv_ymoalfV_RYbfZP_AL7RCWOYkGx568CmgY
