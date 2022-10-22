@@ -188,6 +188,10 @@ textarea::placeholder {
     overflow: hidden;
     overflow-y: scroll;
 }
+.corpsPost2{
+    height: 100%;
+    width: 100%;
+}
 
 .descriptionMessage{
     height: 25%;

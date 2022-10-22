@@ -239,58 +239,120 @@ export default function CreerPost() {
 
         <h1 className='titre1'>Mes posts</h1>
         
-        <div className='contenuPost'>
-            <div className='ententePost'>
-                <p>
-                    <span>Créé le date</span>
-                    <span>par nom prenom</span>
-                    <span>Allis pseudonyme</span>
-                </p>
-                <p>
-                    titre  
-                </p>
+
+        {listePost.map((element)=>{
+          return(
+            <div key={element._id} className='contenuPost'>
+              <div className='ententePost'>
+                  <p>
+                      <span>Créé le {element.createdAt}</span>
+                      <span>par {element.nomCreateur} {element.prenomCreateur}</span>
+                      <span>Allis {element.pseudoCreateur}</span>
+                  </p>
+                  <p>
+                      {element.titre} 
+                  </p>
+              </div>
+              <div className='corpsPost'>
+              {messageAnnonce.map((message)=>{
+                    if(message.idPost === element._id){
+                      return(
+                        <div className='corpsPost2'>
+                          <div className='descriptionMessage'>
+                                <div className='englobeInfo'>
+                                    <div>
+                                      <p>
+                                        <span>Message créé le {message.createdAt}</span>
+                                      </p>
+                                      <p>
+                                        <span>Par  {message.nomCreateurMessage} {message.prenomCreateurMessage}</span>
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <span>Allias {message.pseudoCreateurMessage}</span>
+                                    </div>
+                                </div>
+                          </div>
+                          <p className='PartieContenuMsgPost'>
+                              {message.contenu}
+                          </p>
+                        </div>
+                      )
+                    }
+
+                  })}
+                  {/* <div className='descriptionMessage'>
+                        <div className='englobeInfo'>
+                            <div>
+                              <p>
+                                <span>Message créé le </span>
+                              </p>
+                              <p>
+                                <span>Par  </span>
+                              </p>
+                            </div>
+                            <div>
+                              <span>Allias </span>
+                            </div>
+                        </div>
+                  </div>
+                  <p className='PartieContenuMsgPost'>
+                      titre
+                  </p> */}
+              </div> 
+              {/* {messageAnnonce.map((message)=>{
+                    if(message.idPost === element._id){
+                      return(
+                        <div>
+                          <div className='descriptionMessage'>
+                                <div className='englobeInfo'>
+                                    <div>
+                                      <p>
+                                        <span>Message créé le {message.createdAt}</span>
+                                      </p>
+                                      <p>
+                                        <span>Par  {message.nomCreateurMessage} {message.prenomCreateurMessage}</span>
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <span>Allias {message.pseudoCreateurMessage}</span>
+                                    </div>
+                                </div>
+                          </div>
+                          <p className='PartieContenuMsgPost'>
+                              {message.contenu}
+                          </p>
+                        </div>
+                      )
+                    }
+
+                  })} */}
+              {/* <div className='corpsPost'>
+                  <div className='descriptionMessage'>
+                        <div className='englobeInfo'>
+                            <div>
+                              <p>
+                                <span>Message créé le date</span>
+                              </p>
+                              <p>
+                                <span>Par nom prénom</span>
+                              </p>
+                            </div>
+                            <div>
+                              <span>Allias Pseudonyme</span>
+                            </div>
+                        </div>
+                  </div>
+                  <p className='PartieContenuMsgPost'>
+                    azertyuiopazertyuiopazertyuiopaz ertyuiopazertyuiopazertyuiopazert yuiopazertyuiopazertyuiopazertyuiopaze rtyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiop
+                    azertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazerty uiopazertyuiopazertyui opazertyuiopazertyuiop
+                  </p>
+              </div>         */}
             </div>
-            <div className='corpsPost'>
-                <div className='descriptionMessage'>
-                      <div className='englobeInfo'>
-                          <div>
-                            <p>
-                               <span>Message créé le date</span>
-                            </p>
-                            <p>
-                              <span>Par nom prénom</span>
-                            </p>
-                          </div>
-                          <div>
-                            <span>Allias Pseudonyme</span>
-                          </div>
-                      </div>
-                </div>
-                <p className='PartieContenuMsgPost'>
-                  azertyuiopazertyuiopazertyuiopaz ertyuiopazertyuiopazertyuiopazert yuiopazertyuiopazertyuiopazertyuiopaze rtyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiop
-                  azertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazerty uiopazertyuiopazertyui opazertyuiopazertyuiop
-                </p>
-                <div className='descriptionMessage'>
-                      <div className='englobeInfo'>
-                          <div>
-                            <p>
-                               <span>Message créé le date</span>
-                            </p>
-                            <p>
-                              <span>Par nom prénom</span>
-                            </p>
-                          </div>
-                          <div>
-                            <span>Allias Pseudonyme</span>
-                          </div>
-                      </div>
-                </div>
-                <p className='PartieContenuMsgPost'>
-                  azertyuiopazertyuiopazertyuiopaz ertyuiopazertyuiopazertyuiopazert yuiopazertyuiopazertyuiopazertyuiopaze rtyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiop
-                  azertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazerty uiopazertyuiopazertyui opazertyuiopazertyuiop
-                </p>
-            </div>        
-        </div>
+            )
+        })}
+
+      
         {/* {listePost.map((element)=>{
           return(
               <div style={{marginBottom : 80}} key={element._id}>
