@@ -1,0 +1,260 @@
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.partieMsgErreurSectionTriage{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    color: red;
+}
+
+/*partie de recherche de post */
+
+.sectionTriage{
+    margin: 0 auto;
+    width: 60%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+}
+
+.partieRecherchePost{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.paraBouttons{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:  space-around;
+}
+
+.partieRecherchePost input::placeholder{
+    color: black;
+}
+
+.partieRecherchePost input,.partieRecherchePost select,.partieRecherchePost button{
+   height: 30%;
+   margin-left: 20px;
+}
+
+
+/* partie tableau post  */
+
+.tableauPost{
+    width: 60%;
+    margin: 0 auto;
+    font-size: 19px;
+}
+
+.tableauPost table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.tableauPost td:nth-child(1){
+    width: 70%;
+}
+
+.tableauPost td:nth-child(2),.tableauPost td:nth-child(3),.tableauPost td:nth-child(4){
+    width: 10%;
+}
+
+.tableauPost td{
+    padding: 15px;
+}
+
+thead tr{
+    border-bottom: 2px solid black; 
+}
+
+tbody tr{
+    border-bottom: 1px solid black; 
+    height: 80px;
+}
+
+/*partie affichage des categorie sur le clique bouton catégorie */
+
+.listeCategories{
+    position: absolute;
+    width: 30%;
+    height: 300%;
+    top: 100%;
+    border: red solid 1px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.uneCategorie{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.uneCategorie:hover{
+    background-color: #cbf1b2;
+    cursor: pointer;
+}
+
+
+.uneCategorie p:nth-child(1),.uneCategorie p:nth-child(2){
+   padding: 5px;
+}
+
+.uneCategorie p:nth-child(1){
+    font-size: 18px;
+ }
+
+ .uneCategorie p:nth-child(2){
+    opacity: 0.7;
+ }
+
+ /* para boutton*/
+
+.creerNewPost{
+    margin-left: 15px;
+}
+
+ .visible{
+   display: block;
+ }
+
+ .invisible{
+    display: none;
+ }
+
+ /*style pour bouttons */
+
+.nouveauSujet,.bouttonAllPost,.creerNewPost{
+    background-color: white;
+    border: #cbf1b2 2px solid;
+    border-radius: 10%;
+    padding: 10px;
+    color:#cbf1b2 ;
+    font-weight: bold;
+    transition : background-color 1s , color 1s ;
+}
+
+
+.nouveauSujet:hover,.bouttonAllPost:hover,.creerNewPost:hover{
+    background-color: #6bc330 ;
+    color: white;
+    cursor: pointer;
+}
+
+.bouttonRecherche2{
+    background-color: white;
+    border-radius: 10%;
+}
+
+.bouttonRecherche2:hover{
+   cursor: pointer;
+}
+
+/*patie formulaire creer new post */
+
+
+.formulaireCreerNewPost{
+    width: 700px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    position: relative;
+}
+
+.partieTitreTextPost {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 80px;
+    margin-top: 50px;
+  }
+
+.partieTitreTextPost textarea{
+  width: 100%;
+  height: 100px;
+  font-size: 22px;
+}
+
+.labelTitrePost{
+    width: 20%;
+    font-size: 25px;
+}
+.texteareaFormPost{
+    width: 80%;
+}
+
+.partieCheckbox{
+    width: 80%;
+    height: 500px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.partieCheckbox p{
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+
+.titreCheckbox{
+    width: 20%;
+    height: 100%;
+}
+
+.allCheckbox{
+    width: 80%;
+    height: 80%;
+
+}
+
+.creerFormPost{
+    background-color: white;
+    border: #cbf1b2 2px solid;
+    border-radius: 40%;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color:#cbf1b2 ;
+    font-weight: bold;
+    transition : background-color 1s , color 1s ;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.creerFormPost:hover{
+    background-color: #6bc330  ;
+    color: white;
+    cursor: pointer;
+}
+
+.errorMsgCreerPost2{
+    position: absolute;
+    bottom: 15%;
+    color: red;
+    font-size: 23px;
+}
+
+.titreDuPost:hover{
+    cursor: pointer;
+}

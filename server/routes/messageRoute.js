@@ -34,6 +34,10 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
         if(!verifIdPost){
             return res.status(401).json("vous devez envoyer un message sur un poste existant ou créer un post.")
         }
+        // ajout +1 du nombre de message du post 
+        verifIdPost.nombreMessages +=1;
+        await verifIdPost.save();
+
         const tab = await User.find({_id:idUser});
         
           const newMessage = new Message({

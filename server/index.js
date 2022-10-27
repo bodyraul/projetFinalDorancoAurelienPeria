@@ -23,9 +23,11 @@ const postRoute = require("./routes/postRoute");
 const messageRoute = require("./routes/messageRoute");
 const adminRoute = require("./routes/admin");
 const signalementRoute = require("./routes/signalementRoute");
+const categorie = require("./routes/categorie");
 app.use("/post",postRoute);
 app.use("/user",userRoute);
 app.use("/message",messageRoute);
+app.use("/categorie",categorie);
 app.use("/admin",adminRoute);
 app.use("/signalement",signalementRoute);
 

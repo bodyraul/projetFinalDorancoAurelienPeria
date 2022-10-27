@@ -14,7 +14,7 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email" : "aurelien.peria@gmail.com",
+    "email" : "guina.peria@gmail.com",
     "password" : "123456"
 }
 
@@ -25,12 +25,20 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjMwNTYwOX0.LBBzBuINVOcvWAJ3QNnw2x27OKeslMF407doytOxjaQ
 
 {
-    "titre":"boby1",
-    "description":"boby1"
+    "categorie":"Stratégie Spin & Go",
+    "titre":"bonjour"
 }
 
 ###
 GET  http://localhost:5000/post/
+Content-Type: application/json
+
+###
+GET  http://localhost:5000/post/recherchepostesParPseudo/guigui
+Content-Type: application/json
+
+###
+GET  http://localhost:5000/post/recherchepostesParmot/bon
 Content-Type: application/json
 
 ###
@@ -39,17 +47,22 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDlkZGVjNTM3ZDc4NWY2NmMwOTU5NSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NTg4MDAwOX0.sjwEOoJ_Id9yPEmlAGFLOC4uTpC3Opg5VpdTBWWL80c
 
 ###
+GET  http://localhost:5000/post/posteParCategorie/general
+Content-Type: application/json
+
+
+###
 GET  http://localhost:5000/post/monPoste/634ae5f5fc02208be5df0076
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwYTAwNWEwYjkyYWQ3YmMwZWQ4NyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NjEwNTE0M30.oRYEebwTLFPKrLBa6Vtj-bM5e4IBibTjH7LObgJ6EX4
 
 ###
-POST http://localhost:5000/message/creerMessage/635296834e52752dc3866612
+POST http://localhost:5000/message/creerMessage/63548c5441ebd9149d116294
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjM5MTE4OX0.CsyTMPU9Iy2FUQbB930orzvkOvdwGudrfxirVn7XA2I
 
 {
-    "contenu": "bbbbbb"
+    "contenu": "aaaaa"
 }
 
 ###
@@ -69,9 +82,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlN
 
 
 ###
-DELETE   http://localhost:5000/post/supprimerPost/634ae5d5fc02208be5df006c
+DELETE   http://localhost:5000/post/supprimerPost/63563a5d807a98e4e9033732
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwYTAwNWEwYjkyYWQ3YmMwZWQ4NyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImlhdCI6MTY2NTkyODYyN30.8p8E29ZDBTXtutNYvtLIRTsSguRLPLtXsrUIJYzF-iQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjU5NTIxM30.vpfqIRhKmbQg5Rs3EYpmIHJlHTQgjJkg2r6gD2NtvzA
 
 ###
 Get http://localhost:5000/admin
@@ -172,3 +185,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlN
 DELETE   http://localhost:5000/signalement/supprimerSignalementPost/634e0968079886f8f0f1f7aa
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjA1ODExNH0.Xub-S_Qtv_ymoalfV_RYbfZP_AL7RCWOYkGx568CmgY
+
+###
+POST   http://localhost:5000/categorie/creerCategorie
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjU5Mjk2OH0.4_LJwpNojx-FY5t-idaamuizKyeCtFG4aKBZI7KTg2g
+
+{
+    "titre" : "Logiciel de poker",
+    "contenu" : "Discussion sur les logiciels de poker : utilisation, tutoriel, praticité etc..."
+}
+
+###
+GET    http://localhost:5000/categorie/afficherAllCategories
+Content-Type: application/json
+

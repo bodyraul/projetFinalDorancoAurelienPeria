@@ -28,7 +28,7 @@ textarea::placeholder {
     height: 700px;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border : rgb(178,34,34) 2px solid
 }
 
 .formPostPartieTitre{
@@ -131,7 +131,7 @@ textarea::placeholder {
     border-radius: 30px;
     border: none;
     margin: 0 auto;
-    background-color: #007aff;
+    background-color: #1e847f;
     color: white;
     font-size: 20px;
 
@@ -143,10 +143,10 @@ textarea::placeholder {
 /*partie affichage post.*/
 .contenuPost{
     width: 80%;
-    height: 500px;
-    border: solid 1px black;
+    height: 600px;
+    border: solid 5px black;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,11 +154,13 @@ textarea::placeholder {
 }
 
 .ententePost{
-    height: 40%;
+    height: 30%;
     width: 100%;
     display: flex;
     flex-direction: row;
-    border-bottom: black solid 1px;
+    font-weight: bold;
+    border-bottom: solid 5px black;
+    background-color: rgb(178,34,34);
 }
 
 .ententePost p:nth-child(1){
@@ -168,7 +170,7 @@ textarea::placeholder {
     text-align: center;
     width: 20%;
     font-size: 23px;
-    border-right: black solid 1px;
+    border-right: solid 5px black;
 }
 
 .ententePost p:nth-child(2){
@@ -177,59 +179,69 @@ textarea::placeholder {
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    font-size: 30px;
+    font-size: 33px;
     padding: 25px;
     
 }
 
 .corpsPost{
-    height: 60%;
+    height: 70%;
     width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-.corpsPost2{
-    height: 100%;
-    width: 100%;
-}
-
-.descriptionMessage{
-    height: 25%;
-    width: 100%;
-   display: flex;
-   flex-direction: row;
-   border-bottom: 1px solid black;
-   margin-top: 50px;
-}
-
-.englobeInfo{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.englobeInfo div:nth-child(1) ,.englobeInfo div:nth-child(2){
-    width: 100%;
-    height: 50%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    font-size: 22px;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
-.PartieContenuMsgPost{
-    height:50%;
-    font-size: 28px;
-    text-align: center;
+
+.partieAffchageDuMsg,.PartieSaisirNewMsg{
+    width: 50%;
+    height: 100%;
     border: solid 1px black;
 }
 
 
+.partieAffchageDuMsg div{
+    height: 80%;
+    width: 100%;
+}
 
+.PartieSaisirNewMsg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0px;
+}
 
+.PartieSaisirNewMsg textarea{
+    width: 100%;
+    height: 70%;
+}
 
+.corpsPost2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top:50px;
+}
+
+.afficherInfoMsgg{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: yellow;
+}
+
+.afficherMssg{
+    height: 100%;
+    width: 50%;
+    background-color: #1e847f;
+}
 

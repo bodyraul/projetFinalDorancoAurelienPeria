@@ -14,6 +14,8 @@ import DetailsSignalementPost from './pages/Admin/DetailsSignalementPost';
 import DetailsSignalementMsg from './pages/Admin/DetailsSignalementMsg';
 import CreerPost from './pages/Post/CreerPost';
 import ModifPost from './pages/Post/ModifPost';
+import AccueilForum from './pages/forum/AccueilForum';
+import MessagePost from '../src/pages/messagePost/MessagesDesPost';
 
 
 
@@ -32,6 +34,8 @@ export default function App() {
                 <Route path="/" element={<Accueil/>} />
                 <Route path="/inscription" element={<Inscription/>} />
                 <Route path="/connexion" element={<Connexion/>} />
+                <Route path="/forum" element={<AccueilForum/>} />
+                <Route path="/forum/messagePost/:id" element={<MessagePost/>} />
                 <Route path="/post" element={<Post/>} />
                 <Route path="/post/creerPost" element={<CreerPost/>} />
                 <Route path="/post/modifPost/:id" element={<ModifPost/>} />

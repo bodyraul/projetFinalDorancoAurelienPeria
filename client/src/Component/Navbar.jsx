@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     const { token,settoken } = useContext(AuthContext);
-  
     if(token) {
       return(
         <nav>
           <Link to={"/"}>Accueil </Link>
+          <Link to={"/forum"}>forum </Link>
           <Link to={"/post"}>Post </Link>
           <Link to={"/post/creerPost"}>creer un post </Link>
           <Link onClick={()=>{
@@ -25,6 +25,7 @@ export default function Navbar() {
           <Link to={"/post"}>Post </Link>
           <Link to={"/connexion"}>Connexion </Link>
           <Link to={"/inscription"}>Inscription </Link>
+        
         </nav>
      )
     }

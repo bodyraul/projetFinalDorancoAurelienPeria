@@ -6,11 +6,13 @@ const Post = require("../model/Post");
 const { find } = require("../model/User");
 const User = require("../model/User");
 const Message =require("../model/MessagePost");
+const Categorie = require("../model/Categorie");
 
 //route qui permet de récupérer tous les posts
 router.get("/",async(req,res)=>{
     try {
-        const post =await Post.find();
+        // const post =await Post.find();
+        const post = await Post.find ().sort ( {createdAt: -1} );
         res.json(post);
         
     } catch (error) {
@@ -55,22 +57,96 @@ router.get("/",async(req,res)=>{
 
  })
 
+ //route qui permet de récupérer les posts par catégorie
+ router.get("/posteParCategorie/:categorie",async(req,res)=>{
+    try {
+        const categorie = req.params.categorie;
+        //test voir si la catégorie existe
+        // const testCategorie = await Categorie.find({titre:categorie});
+        
+        const allPost =await Post.find({categorie:categorie}).sort({createdAt:-1});
+        res.json(allPost);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+ })
+
+ //route qui permet de récupérer les post d'un utilisateur par le pseudo
+ router.get("/recherchepostesParPseudo/:pseudoCreateur",async(req,res)=>{
+    try {
+        const pseudoCreateur = req.params.pseudoCreateur;
+        const user =await User.findOne({pseudonyme:pseudoCreateur});
+        if(!user){
+            return res.status(404).json("L'utilisateur n'existe pas.");
+        }
+        const posts = await Post.find({pseudoCreateur:pseudoCreateur}).sort({createdAt:-1});
+        res.json(posts);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+ })
+
+ //route qui permet de récupérer les post par une recherche de mot 
+ router.get("/recherchepostesParmot/:mot",async(req,res)=>{
+    try {
+        const mot = req.params.mot;
+        const posts = await Post.find({titre:{$regex:mot}}).sort({createdAt:-1});
+        if(posts.length===0){
+            return res.status(404).json("ne correspond à aucun post");
+        }
+        res.json(posts);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+ })
+
+
  
 //route qui permet de créer un post
 router.post("/creerPost",auth,async(req,res)=>{
    try {
     const user = req.payload.id;
     if(!user){
-        res.json("vous devez être connecté pour créer un post");
+        return res.json("vous devez être connecté pour créer un post");
     }
+    if(user.bannis){
+       return res.json("vous êtes bannis, vous ne pouvez pas créer de psot");
+    }
+    var now = new Date();
+    const annee=now.getFullYear();
+    const mois=now.getMonth() + 1;
+    const jour=now.getDate();
+    const heure=now.getHours();
+    const minute=now.getMinutes();
+    const seconde=now.getSeconds();
+    
+    const dateCreation = ""+jour+"/"+mois+"/"+annee+"";
+    const heureCreation = ""+heure+":"+minute+":"+seconde+"";
+
+    //ajout du post dans categorie pour avoir le nombre de post par categorie
+    const categorie = await Categorie.findOne({titre:req.body.categorie});
+    if(!categorie){
+        return res.json("la catégorie n'existe pas");
+    }
+    categorie.nombrePost +=1;
+    await categorie.save();
+    
     const tab = await User.find({_id : user});
     const post = new Post({
+        "categorie":req.body.categorie,
         "titre":req.body.titre,
-        "description":req.body.description,
         "idUser":user,
         "prenomCreateur": tab[0].prenom,
         "nomCreateur" : tab[0].nom,
         "pseudoCreateur" : tab[0].pseudonyme,
+        "dateCreation":dateCreation,
+        "heureCreation" : heureCreation,
     })
     
     await post.save();    
@@ -79,6 +155,8 @@ router.post("/creerPost",auth,async(req,res)=>{
         res.status(500).json(error.message);
    }
 });
+
+
 
 //permet de modifier son propre poste
 router.put("/modifierPost/:id",auth,async(req,res)=>{
@@ -93,7 +171,6 @@ router.put("/modifierPost/:id",auth,async(req,res)=>{
             return res.status(404).json("Vous ne pouvez pas modifier un post qui ne vous appartient pas");
         }
         post.titre=req.body.titre;
-        post.description=req.body.description;
         await post.save();
         res.json("Votre post a bien été modifié");
     } catch (error) {
@@ -116,6 +193,11 @@ router.delete("/supprimerPost/:id",auth,async(req,res)=>{
         if(post.idUser!=user){
             return res.status(404).json("Vous ne pouvez pas supprimer un post qui ne vous appartient pas");
         }
+
+        // nombre de post de cette catégorie passe à total -1 
+        const categorie = await Categorie.findOne({titre:post.categorie});
+        categorie.nombrePost -=1;
+        await categorie.save();
 
         const messages = await Message.find({idPost:post._id});
 

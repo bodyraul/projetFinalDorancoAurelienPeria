@@ -14,7 +14,7 @@ export default function Connexion() {
         axios.post("/user/login",connection)
         .then((res)=>{
           localStorage.setItem("token",res.data);
-          navigate("/post");
+          navigate("/forum");
         })
         .catch((err)=>console.log(err));
     }
