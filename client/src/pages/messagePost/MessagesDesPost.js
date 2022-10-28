@@ -86,6 +86,7 @@ export default function MessagesPost() {
       await  axios.get(`/signalement/AfficherMessageSignalerParPost/${id}`,config)
       .then((res)=>{
         setlisteSignalementUser(res.data);
+        console.log(res.data) ;
       })
       .catch((err)=>console.log(err));
     }
@@ -185,34 +186,40 @@ export default function MessagesPost() {
    await  axios.get(`/signalement/AfficherMessageSignalerParPost/${id}`,config)
    .then((res)=>{
      setlisteSignalementUser(res.data);
-    
    })
    .catch((err)=>console.log(err));
  
 }
 
-  // on compare ici les id message de la liste message avec l'id message des  message likés de l'utilisateur
+   // on compare ici les id message de la liste message avec l'id message des  message likés de l'utilisateur
   // pour voir les messages qu'il a liké
-  const messageLike = (idMsg) =>{
+  const messageLike = (idMsg,nblike) =>{
     if(listeLikeUser.length === 0){
-      return (     
-        <img onClick={()=>creerLike(idMsg)} src={likeNoir}></img>     
+      return (
+        <div className='like'>
+          <img onClick={()=>creerLike(idMsg)} src={likeNoir}></img>
+        </div>
       )
     }
     for(var k=0;k<= listeLikeUser.length-1;k++){
       if(listeLikeUser[k].idMessage == idMsg){
         return (
-            <img onClick={()=>suppLike(idMsg)} src={likeVert}></img>        
+          <div className='like'>
+            <img onClick={()=>suppLike(idMsg)} src={likeVert}></img>
+          </div>
         )
       }
   }
-  return (    
+  return (
+      <div className='like'>
         <img onClick={()=>creerLike(idMsg)} src={likeNoir}></img>
+      </div>
     )
+
  }
 
 
-//permet de créer un like
+ //permet de créer un like
 const creerLike = async(idMsg)=>{
 
   const config = {
@@ -270,7 +277,6 @@ const suppLike = async (idMsg)=>{
     })
     .catch((err)=>console.log(err));
   }
- 
 
   return (
     <div>

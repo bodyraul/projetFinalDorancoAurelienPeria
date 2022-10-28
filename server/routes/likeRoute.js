@@ -61,10 +61,6 @@ router.get("/AfficherMessageLikerParPost/:id",auth,async(req,res)=>{
         return ele.idUserlikeur == idUser;
     }) 
 
-    if(newtab.length === 0){
-       return res.status(404).json("aucun like .")
-    }
-
     res.json(newtab);
     } catch (error) {
         res.status(500).json(error.message);
