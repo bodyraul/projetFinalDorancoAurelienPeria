@@ -145,8 +145,8 @@ const  validerFormPost  = async () => {
     if(valueTextarea.length<10){
       return  seterrorMsgCreerPost("le titre ne peux pas contenir moins de 10 caractères.");
     }
-    if(valueTextarea.length>50){
-      return  seterrorMsgCreerPost("le titre ne peux pas contenir plus de 50 caractères.");
+    if(valueTextarea.length>150){
+      return  seterrorMsgCreerPost("le titre ne peux pas contenir plus de 150 caractères.");
     }
    
     const newPost = {};

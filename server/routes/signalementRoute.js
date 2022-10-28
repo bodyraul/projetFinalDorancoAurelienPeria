@@ -61,7 +61,7 @@ router.post("/signalementMessage/:id",auth,async(req,res)=>{
 
 })
 
-// Permet à un utilisateur connecté de supprimer le signalement d'un message
+// Permet à un utilisateur connecté de supprimer le signalement d'un message qu'il a lui même créér
 router.delete("/signalementMessage/:id",auth,async(req,res)=>{
     try {
        const idUser = req.payload.id;

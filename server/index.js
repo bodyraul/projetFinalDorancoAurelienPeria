@@ -20,12 +20,14 @@ mongoose.connect(uri)
 
 const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoute");
+const likeRoute = require("./routes/likeRoute");
 const messageRoute = require("./routes/messageRoute");
 const adminRoute = require("./routes/admin");
 const signalementRoute = require("./routes/signalementRoute");
 const categorie = require("./routes/categorie");
 app.use("/post",postRoute);
 app.use("/user",userRoute);
+app.use("/like",likeRoute);
 app.use("/message",messageRoute);
 app.use("/categorie",categorie);
 app.use("/admin",adminRoute);

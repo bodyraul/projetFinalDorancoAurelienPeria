@@ -6,7 +6,8 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import "../messagePost/messageDesPost.css"
-import like from"../../photo/jaime.svg";
+import likeNoir from"../../photo/likeNoir.svg";
+import likeVert from"../../photo/likeVert.svg";
 import signaler from"../../photo/signaler.svg";
 import signalerRouge from"../../photo/signalerRouge.svg";
 
@@ -20,6 +21,8 @@ export default function MessagesPost() {
   const [tailleAllMsg, settailleAllMsg] = useState(false);
   const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
+  const [listeLikeUser, setlisteLikeUser] = useState([]);
+  const  [nbLikes, setnbLikes] = useState(0);
   const [arriverListeSignalement, setarriverListeSignalement] = useState(false);
 
 
@@ -53,6 +56,7 @@ export default function MessagesPost() {
     .catch((err)=>console.log(err));
 
     seterrMsgCreationMsg("message Créé.");
+    setvalueMsgForm("");
   }
 
 
@@ -86,9 +90,19 @@ export default function MessagesPost() {
       .catch((err)=>console.log(err));
     }
 
+    async function like (){
+      await  axios.get(`/like/AfficherMessageLikerParPost/${id}`,config)
+      .then((res)=>{
+        console.log(res);
+        setlisteLikeUser(res.data);
+      })
+      .catch((err)=>console.log(err));
+    }
+
     messages();
     monPoste();
     signalements();
+    like();
 
   }, [])
 
@@ -125,6 +139,7 @@ export default function MessagesPost() {
       </div>
      )
  }
+
   
  // requete qui permet de signaler un message
  const   signalerMessage = async (idMsg) => {
@@ -151,7 +166,7 @@ export default function MessagesPost() {
   
  }
 
-  // requete qui permet de supprimer le  signalement d'un message
+ // requete qui permet de supprimer le  signalement d'un message
  const supSignalementMessage = async (idMsg) => {
 
   const config = {
@@ -175,6 +190,87 @@ export default function MessagesPost() {
    .catch((err)=>console.log(err));
  
 }
+
+  // on compare ici les id message de la liste message avec l'id message des  message likés de l'utilisateur
+  // pour voir les messages qu'il a liké
+  const messageLike = (idMsg) =>{
+    if(listeLikeUser.length === 0){
+      return (     
+        <img onClick={()=>creerLike(idMsg)} src={likeNoir}></img>     
+      )
+    }
+    for(var k=0;k<= listeLikeUser.length-1;k++){
+      if(listeLikeUser[k].idMessage == idMsg){
+        return (
+            <img onClick={()=>suppLike(idMsg)} src={likeVert}></img>        
+        )
+      }
+  }
+  return (    
+        <img onClick={()=>creerLike(idMsg)} src={likeNoir}></img>
+    )
+ }
+
+
+//permet de créer un like
+const creerLike = async(idMsg)=>{
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const like= {
+    nom:"oui",
+  };
+
+  await axios.post(`/like/creerLike/${idMsg}`,like,config)
+  .then((res)=>console.log(res))
+  .catch((err)=>console.log(err));
+  
+  await  axios.get(`/like/AfficherMessageLikerParPost/${id}`,config)
+      .then((res)=>{
+        console.log(res);
+        setlisteLikeUser(res.data);
+      })
+      .catch((err)=>console.log(err));
+
+  await axios.get(`/message/afficherMesMessages/${id}`,config)
+    .then((res)=>{
+      setallMsg(res.data);
+      console.log(res.data);
+    })
+    .catch((err)=>console.log(err));
+}
+
+//permet de supprimer un like
+const suppLike = async (idMsg)=>{
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  await axios.delete(`/like/supprimerLike/${idMsg}`,config)
+    .then((res)=>console.log(res))
+    .catch((err)=>console.log(err));
+
+  await  axios.get(`/like/AfficherMessageLikerParPost/${id}`,config)
+      .then((res)=>{
+        console.log(res);
+        setlisteLikeUser(res.data);
+      })
+      .catch((err)=>console.log(err));
+  
+  await axios.get(`/message/afficherMesMessages/${id}`,config)
+    .then((res)=>{
+      setallMsg(res.data);
+      console.log(res.data);
+    })
+    .catch((err)=>console.log(err));
+  }
+ 
 
   return (
     <div>
@@ -207,12 +303,13 @@ export default function MessagesPost() {
               </div>
               <div className='partieBtnAffichageMsg'>
                   <div className='like'>
-                    <p>nombre like</p>
-                    <img src={like}></img>
+                    <p>{message.nbLike}</p>
+                    {messageLike(message._id)}
                   </div>
-                  <div className='signalement'>
-                    {messageSignals(message._id)}
-                  </div>
+                 
+                  
+                  {messageSignals(message._id)}
+                  
               </div>
               <div className='finDuMsg'>
            
@@ -225,7 +322,7 @@ export default function MessagesPost() {
                 message
             </p>
             <p>
-                <textarea value={valueMsgForm} onChange={(e)=>setvalueMsgForm(e.target.value)} className='ecrireMsgDuPost'></textarea>
+                <textarea  value={valueMsgForm} onChange={(e)=>setvalueMsgForm(e.target.value)} className='ecrireMsgDuPost'></textarea>
             </p>
             <p>
                 {errMsgCreationMsg}

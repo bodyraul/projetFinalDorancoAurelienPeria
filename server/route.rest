@@ -14,9 +14,33 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email" : "aurelien.peria@gmail.com",
+    "email" : "guina.peria@gmail.com",
     "password" : "123456"
 }
+
+###
+POST http://localhost:5000/user/recupPseudo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2Njk2NjI5MX0.ojRmWvMrYIfIcFVU2PQnQhzNHBlRlEPfRhYGgpv87qE
+
+###
+POST http://localhost:5000/like/creerLike/635bfe6577409ee454593ef3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2Njk3MzU3NH0.tAFkWmXYuMT-5MnrfmMAo77LkpyBfOmosDNZC7dddpc
+
+###
+DELETE  http://localhost:5000/like/supprimerLike/635bfe6577409ee454593ef3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2Njk3MzU3NH0.tAFkWmXYuMT-5MnrfmMAo77LkpyBfOmosDNZC7dddpc
+
+###
+GET   http://localhost:5000/like/AfficherMessageLikerParPost/635be4fb4e162d04f4fb0e74
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2Njk3MjEwMH0.DhzDaZpPYB2zD9OWK4haQyJD47lQUva7i-mL5U4OgUE
+
+###
+GET   http://localhost:5000/like/nbLikeMsg/635be6d64e162d04f4fb0ec6
+Content-Type: application/json
 
 
 ###

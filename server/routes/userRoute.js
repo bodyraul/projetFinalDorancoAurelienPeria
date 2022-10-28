@@ -3,6 +3,7 @@ const router =express.Router();
 const User = require("../model/User");
 const bcrypt =require("bcrypt");
 const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 
 //route qui permet de créer un compte
 router.post("/register",async(req,res)=>{
@@ -54,6 +55,21 @@ router.post("/login",async(req,res)=>{
         }
         const token = jwt.sign({id: user._id,role:user.role,bannis:user.bannis}, "aurelien");
         res.json(token);
+
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+    
+});
+
+//permet de récupérer le pseudo de l'utilisateur connecté
+//route qui permet de se connecter
+router.get("/recupPseudo",auth,async(req,res)=>{
+    try {
+        const idUser=req.payload.id;
+        const user =await User.findOne({_id:idUser});
+        const pseudo = user.pseudonyme;
+        res.json(pseudo);
 
     } catch (error) {
         res.status(500).json(error.message);

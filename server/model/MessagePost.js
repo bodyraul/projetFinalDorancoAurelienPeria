@@ -11,7 +11,7 @@ const messageSChema = new mongoose.Schema({
     pseudoCreateurMessage : {type:String,require:true},
     heureCreation : {type:String,require:true},
     dateCreation : {type:String,require:true},
-    signalementDuUser :{type:Boolean,default:false},
+    nbLike : {type:Number,require:true,default:0},
 },
 {
     timestamps:true,
