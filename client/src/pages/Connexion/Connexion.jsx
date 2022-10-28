@@ -2,19 +2,23 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
 
 export default function Connexion() {
   const navigate = useNavigate();
    const [mail, setmail] = useState("");
    const [password, setpassword] = useState(""); 
+   const {token,settoken}  = useContext(AuthContext);
 
-    const valideForm =(e)=>{
+    const valideForm = async (e)=>{
         e.preventDefault();
         const connection ={email:mail,password};
-        axios.post("/user/login",connection)
+        await axios.post("/user/login",connection)
         .then((res)=>{
-          localStorage.setItem("token",res.data);
-          navigate("/forum");
+           localStorage.setItem("token",res.data);
+           settoken(res.data);
+           navigate("/forum");
         })
         .catch((err)=>console.log(err));
     }

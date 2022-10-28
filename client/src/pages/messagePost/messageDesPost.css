@@ -1,0 +1,134 @@
+.creationMsgDuPost{
+    width: 1000px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    position: relative;
+    height: 500px;
+}
+
+.creationMsgDuPost p:nth-child(1){
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.creationMsgDuPost p:nth-child(2){
+    height: 40%;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+ }
+
+ .creationMsgDuPost p:nth-child(3){
+   font-size: 25px;
+   color: red;
+ }
+
+.ecrireMsgDuPost{
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+}
+
+.validerBtnMsgDuPost{
+    width: 100px;
+    background-color: white;
+    border: #cbf1b2 2px solid;
+    border-radius: 10%;
+    padding: 10px;
+    color:#cbf1b2 ;
+    font-weight: bold;
+    transition : background-color 1s , color 1s ;
+}
+
+.validerBtnMsgDuPost:hover{
+    background-color: #6bc330 ;
+    color: white;
+    cursor: pointer;
+}
+
+.presentationPost{
+    height: 100px;
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.presentationPost p:nth-child(1){
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+.presentationPost p:nth-child(3){
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  opacity: 0.3;
+}
+
+.allMsgDuPost{
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.enteteMsgDuPost{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 21px;
+}
+
+.contenuMsgDuPost{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.finDuMsg{
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    margin-top: 20px;  
+    opacity: 0.3;
+}
+
+.messageServer{
+    color: red;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+.partieBtnAffichageMsg{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.partieBtnAffichageMsg img:hover{
+    cursor: pointer;
+}
+
+.like,.signalement{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.like p,.signalement p{
+    padding-right: 10px;
+}

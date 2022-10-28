@@ -36,6 +36,18 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
         }
         // ajout +1 du nombre de message du post 
         verifIdPost.nombreMessages +=1;
+
+        var now = new Date();
+        const annee=now.getFullYear();
+        const mois=now.getMonth() + 1;
+        const jour=now.getDate();
+        const heure=now.getHours();
+        const minute=now.getMinutes();
+        const seconde=now.getSeconds();
+        
+        const dateCreation = ""+jour+"/"+mois+"/"+annee+"";
+        const heureCreation = ""+heure+":"+minute+":"+seconde+"";
+
         await verifIdPost.save();
 
         const tab = await User.find({_id:idUser});
@@ -47,6 +59,8 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
             "nomCreateurMessage" : tab[0].nom,
             "prenomCreateurMessage" : tab[0].prenom,
             "pseudoCreateurMessage" : tab[0].pseudonyme,
+            "dateCreation":dateCreation,
+            "heureCreation" : heureCreation,
         });
         await newMessage.save();
         res.json(newMessage);
@@ -55,7 +69,7 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
     }
   })
 
-  //afficher tous les messages de notre post selectionné
+  //afficher tous les messages du post selectionné
   router.get("/afficherMesMessages/:id",auth,async(req,res)=>{
     try {
       const idUser = req.payload.id;
@@ -63,17 +77,14 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
       if(!idUser){
         return res.json("vous devez être connecté pour envoyer un message sur un post.")
     }
-      const post =await Post.findById(idPost);
-      if(post.idUser!= idUser){
-        return res.json("ce post ne vous appartient pas.")
-      }
+     
       const verifIdPost = await Post.findOne({_id:idPost});
       if(!verifIdPost){
         return res.status(401).json("Ce post n'existe pas");
     }
     const allMessagePost = await MessagePost.find({idPost:idPost});
     if(allMessagePost.length === 0){
-      return res.json("aucun message de disponible pour ce post.");
+      return res.status(404).json("aucun message de disponible pour ce post.");
     }
       res.json(allMessagePost);
     } catch (error) {

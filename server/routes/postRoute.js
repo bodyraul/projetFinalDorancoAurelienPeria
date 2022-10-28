@@ -46,9 +46,9 @@ router.get("/",async(req,res)=>{
         }
         const idPost = req.params.id;
         const post =await Post.findOne({_id:idPost});
-        if(post.idUser != idUser){
-            return res.status(404).json("Vous ne pouvez pas acceder un post qui ne vous appartient pas");
-        }
+        // if(post.idUser != idUser){
+        //     return res.status(404).json("Vous ne pouvez pas acceder un post qui ne vous appartient pas");
+        // }
         res.json(post);
         
     } catch (error) {

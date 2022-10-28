@@ -14,7 +14,7 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email" : "guina.peria@gmail.com",
+    "email" : "aurelien.peria@gmail.com",
     "password" : "123456"
 }
 
@@ -128,11 +128,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlN
 }
 
 ###
-POST   http://localhost:5000/signalement/signalementMessage/6351ce79a1d73fd4d335a5bd
+POST   http://localhost:5000/signalement/signalementMessage/635b317b4ee7e1d8dbf8c7df
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3YjFjMzc4MGQ1ZWU4Y2EwOGVlMyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjIyMzQ4MH0.fy_gz3L23kiJrzVApRMmHydzRCGH-j0jVREPtkeNX_o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjkyMTA3NH0.b3Z4mpj5n4Bh9n6WDh2dnqaYnXXsIhqUCey8Y5DLvPs
+
 ###
-POST   http://localhost:5000/signalement/signalementPost/634f785589d20f1045110692
+DELETE   http://localhost:5000/signalement/signalementMessage/635b316f4ee7e1d8dbf8c7d7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGY3NzQ1ODlkMjBmMTA0NTExMDY3ZCIsInJvbGUiOiJhZG1pbiIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjkyNjY4NH0.3VxiKIYlSRybBbNFUVphvQyXHtTFbKK_aM39R6Fyr2E
+
+###
+POST   http://localhost:5000/signalement/signalementPost/635b17ffad95d803915b77ec
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjEwNTQ3OH0.6UKzhNhF3m7PQtptuPezNDeqzGgREz3DnfgIgXN2FGA
 
@@ -140,6 +146,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlN
 Get   http://localhost:5000/signalement/nombreMessageSignaler
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDgwOWRlNWEwYjkyYWQ3YmMwZWQ4NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NjAxMzU3N30.90PeLoO1kHr9I5tdg04xNSq_yQqowfJn5-A2-vCNe04
+
+###
+Get   http://localhost:5000/signalement/AfficherMessageSignalerParPost/635874fc6916195d194a123a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGZmM2M4MGY3NTk2Njc2MWVkMjJiNyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTY2NjkxNzA2OH0.BLvetNBNUYn8O7pDiJ-7iJq-lX15aVa6LbUIuZzbl8c
 
 ###
 Get   http://localhost:5000/signalement/nombrePostSignaler

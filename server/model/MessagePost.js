@@ -9,6 +9,9 @@ const messageSChema = new mongoose.Schema({
     nomCreateurMessage : {type:String,require:true},
     prenomCreateurMessage : {type:String,require:true},
     pseudoCreateurMessage : {type:String,require:true},
+    heureCreation : {type:String,require:true},
+    dateCreation : {type:String,require:true},
+    signalementDuUser :{type:Boolean,default:false},
 },
 {
     timestamps:true,

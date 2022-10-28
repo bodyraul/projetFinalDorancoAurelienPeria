@@ -8,21 +8,23 @@ const SignalementMessage = require("../model/SignalementMessage");
 const SignalementPost = require("../model/SignalementPost");
 const MessagePost = require("../model/MessagePost");
 const role = require("../middleware/role");
+const { json } = require("express");
 
 
 // Permet à un utilisateur connecté de signaler un message
 router.post("/signalementMessage/:id",auth,async(req,res)=>{
     try {
         if(!req.payload.id){
-            res.json("vous devez être connecté pour signaler un message.");
+            return res.status(404).json("vous devez être connecté pour signaler un message.");
         }
         const idMessage = req.params.id;
         const message =await Message.findOne({_id:idMessage});
+        const idPost = message.idPost;
         if(!message){
-            return res.json("Le message que vous essayer de signaler n'existe pas.")
+            return res.status(404).json("Le message que vous essayer de signaler n'existe pas.")
         }
         if(message.traiter===true){
-            return res.json("ce message a été traité vous ne pouvez plus le signaler");
+            return res.status(401).json("ce message a été traité vous ne pouvez plus le signaler");
         }
         
         const idUserSignaleur = req.payload.id;
@@ -38,7 +40,7 @@ router.post("/signalementMessage/:id",auth,async(req,res)=>{
         });
         //on vérifie si l'utilisateur qui signale l'a déjà fait ou non
         if(verifDejaSignalement){
-            return res.json("vous avez déjà signalé ce message.");
+            return res.status(405).json("vous avez déjà signalé ce message.");
         }
         const idUserSignaler = message.idUser;
         const signaler = true;
@@ -46,12 +48,27 @@ router.post("/signalementMessage/:id",auth,async(req,res)=>{
             "idMessage" : idMessage,
             "idUserSignaleur" : idUserSignaleur,
             "idUserSignaler" : idUserSignaler,
+            "idPost" : idPost,
             "signaler" : signaler,
         })
         await newSignalement.save();
         message.signalement=true;
         await message.save();
         res.json("Le message a bien été signalé.");
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+})
+
+// Permet à un utilisateur connecté de supprimer le signalement d'un message
+router.delete("/signalementMessage/:id",auth,async(req,res)=>{
+    try {
+       const idUser = req.payload.id;
+       const idMessage = req.params.id;
+       const signalementASupp = await SignalementMessage.findOne({idMessage:idMessage}).and({idUserSignaleur:idUser});
+       await signalementASupp.remove();
+       res.json("signalement supprimé");
     } catch (error) {
         res.status(500).json(error.message);
     }
@@ -104,6 +121,25 @@ router.post("/signalementPost/:id",auth,async(req,res)=>{
     }
 
 })
+
+//route qui return les messages signalés d'un utilisateur selon un post donné
+router.get("/AfficherMessageSignalerParPost/:id",auth,async(req,res)=>{
+    try {
+       const idUser = req.payload.id;
+       const idPost=req.params.id;
+       // on récupère tous les messages signalés du post 
+       const allSignalementMsg = await SignalementMessage.find({idPost:idPost});
+       // récupère tous les messages signalés du post ou l'idusersignaleur = à lid de luser connecté
+       const newtab = allSignalementMsg.filter(function(ele ){
+        return ele.idUserSignaleur == idUser;
+    }) 
+
+    res.json(newtab);
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})
+
 
 // Permet à un admin de recevoir le nombre d'alertes de signalement d'un message. si ce message est signalé plusieurs fois il
 //ne reçevera qu'une alerte mais avec le nombre de fois ou il a été signalé.
