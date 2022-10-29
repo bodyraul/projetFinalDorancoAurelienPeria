@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import "../forum/accueilForum.css";
 import { useNavigate } from 'react-router-dom';
-
+import Contact from"../contact/Contact"
 
 export default function AccueilForum() {
 const [listePost, setlistePost] = useState([]);
@@ -181,7 +181,7 @@ const accesPageMessagePost= (idPost)=>{
 
   return (
     <div>
-       <h1>forum Poker</h1>
+       <p className='titreForumPoker'>forum Poker</p>
        <div className='partieMsgErreurSectionTriage'>
             <p>{errorMsg}</p>
        </div>
@@ -284,6 +284,7 @@ const accesPageMessagePost= (idPost)=>{
             </p>
             <button onClick={validerFormPost} className='creerFormPost'>Créér</button>
        </div>
+       <Contact/>
     </div>
   )
 }

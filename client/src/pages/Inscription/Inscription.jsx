@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import Contact from"../contact/Contact"
 
 export default function Inscription() {
   const [nom, setnom] = useState("");
@@ -31,6 +32,7 @@ export default function Inscription() {
             <input  type="text"  placeholder="password" value={password} onChange={(e)=>setpassword(e.target.value)}></input>
             <button>valider</button>
         </form>
+        <Contact/>
     </div>
   )
 }

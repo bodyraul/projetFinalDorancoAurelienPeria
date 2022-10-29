@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import Contact from"../contact/Contact"
 
 export default function Connexion() {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export default function Connexion() {
             <input type="text" placeholder="password" value={password} onChange={(e)=>setpassword(e.target.value)}/>
             <button>Se connecter</button>
        </form>
+       <Contact/>
     </div>
   )
 }

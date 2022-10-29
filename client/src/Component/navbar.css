@@ -1,0 +1,39 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+.navbar{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 100px;
+    border: 1px solid #cbf1b2;
+}
+
+
+.premierLink,.deuxiemeLink,.troisiemeLink,.quatriemeLink{
+    color: #cbf1b2;
+    text-decoration: none;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    font-size: 25px;
+    line-height: 80px;
+    background-color: white; 
+    transition : background-color 0.8s , color 0.8s ;
+}
+
+.premierLink:hover,.deuxiemeLink:hover,.troisiemeLink:hover,.quatriemeLink:hover {
+    color: white;
+    background-color:#cbf1b2 ;
+    cursor:pointer;
+}
+

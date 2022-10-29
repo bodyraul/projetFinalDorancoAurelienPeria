@@ -10,6 +10,7 @@ import likeNoir from"../../photo/likeNoir.svg";
 import likeVert from"../../photo/likeVert.svg";
 import signaler from"../../photo/signaler.svg";
 import signalerRouge from"../../photo/signalerRouge.svg";
+import Contact from"../contact/Contact"
 
 export default function MessagesPost() {
   const {id} = useParams();
@@ -335,6 +336,7 @@ const suppLike = async (idMsg)=>{
             </p>
             <button onClick={validerMsgForm} className='validerBtnMsgDuPost'>valider</button>
         </div>
+        <Contact/>
     </div>
   )
 }

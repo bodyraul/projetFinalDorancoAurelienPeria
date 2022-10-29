@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import "../Component/navbar.css"
 
 export default function Navbar() {
     const { token,settoken } = useContext(AuthContext);
@@ -30,12 +31,10 @@ export default function Navbar() {
 
     if(token) {
       return(
-        <nav>
-          <Link to={"/"}>Accueil </Link>
-          <Link to={"/forum"}>forum </Link>
-          <Link to={"/post"}>Post </Link>
-          <Link to={"/post/creerPost"}>creer un post </Link>
-          <Link onClick={()=>{
+        <nav className='navbar'>
+          <Link className='premierLink' to={"/"}>Accueil </Link>
+          <Link className='deuxiemeLink' to={"/forum"}>forum </Link>
+          <Link className='troisiemeLink' onClick={()=>{
             localStorage.removeItem("token");
             settoken("");
         }} to={"/connexion"}>Deconnexion </Link>
@@ -44,11 +43,11 @@ export default function Navbar() {
      )
     }if(!token){
       return(
-        <nav>
-          <Link to={"/"}>Accueil </Link>
-          <Link to={"/post"}>Post </Link>
-          <Link to={"/connexion"}>Connexion </Link>
-          <Link to={"/inscription"}>Inscription </Link>
+        <nav className='navbar'>
+          <Link className='premierLink' to={"/"}>Accueil </Link>
+          <Link className='deuxiemeLink'  to={"/forum"}>forum </Link>
+          <Link className='troisiemeLink'  to={"/connexion"}>Connexion </Link>
+          <Link className='quatriemeLink'  to={"/inscription"}>Inscription </Link>
         
         </nav>
      )
