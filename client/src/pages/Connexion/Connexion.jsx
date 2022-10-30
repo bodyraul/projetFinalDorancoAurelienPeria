@@ -4,13 +4,14 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
-import Contact from"../contact/Contact"
+import './connexion.css'
 
 export default function Connexion() {
   const navigate = useNavigate();
    const [mail, setmail] = useState("");
    const [password, setpassword] = useState(""); 
    const {token,settoken}  = useContext(AuthContext);
+   const [erreurMsg, seterreurMsg] = useState("")
 
     const valideForm = async (e)=>{
         e.preventDefault();
@@ -21,18 +22,37 @@ export default function Connexion() {
            settoken(res.data);
            navigate("/forum");
         })
-        .catch((err)=>console.log(err));
+        .catch((err)=>seterreurMsg(err.response.data));
     }
  
 
   return (
     <div>
-       <form onSubmit={valideForm}>
-            <input type="text" placeholder="mail" value={mail} onChange={(e)=>setmail(e.target.value)}/>
-            <input type="text" placeholder="password" value={password} onChange={(e)=>setpassword(e.target.value)}/>
-            <button>Se connecter</button>
+       <form className='formDeConnexion' onSubmit={valideForm}>
+          <div className='labelMailConnexion'>
+              <p>
+                  Adresse email
+              </p>
+          </div>
+          <div className='inputMailConnexion'>
+            <input type="text" value={mail} onChange={(e)=>{setmail(e.target.value);seterreurMsg("")}}/>
+          </div>
+          <div className='labelPasswordConnexion'>
+              <p>
+                  Password
+              </p>
+          </div>
+          <div className='inputPasswordConnexion'>
+            <input type="password" value={password} onChange={(e)=>{setpassword(e.target.value);seterreurMsg("")}}/>
+          </div>
+          <div className='msgErreurFormConnexion'>
+              <p>{erreurMsg}</p>
+          </div>
+          <div className='btnValiderConnexion'>
+             <button>Se connecter</button>
+          </div>
        </form>
-       <Contact/>
+   
     </div>
   )
 }

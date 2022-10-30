@@ -17,19 +17,21 @@ import Contact from './pages/contact/Contact';
 
 
 
+
 export default function App() {
 
   const initToken = localStorage.getItem("token")?localStorage.getItem("token"):"";
   const [token, settoken] = useState(initToken);
+
  
   return (
     <div>
         
         <BrowserRouter>
-            <AuthContext.Provider value={{token,settoken}}>
+            <AuthContext.Provider value={{token,settoken}} >
             <Navbar/> 
             <Routes>
-                <Route path="/" element={<Accueil/>} />
+                <Route path="/"  element={<Accueil/>} />
                 <Route path="/inscription" element={<Inscription/>} />
                 <Route path="/connexion" element={<Connexion/>} />
                 <Route path="/forum" element={<AccueilForum/>} />

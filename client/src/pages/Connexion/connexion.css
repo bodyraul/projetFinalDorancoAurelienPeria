@@ -1,0 +1,71 @@
+.formDeConnexion{
+    height: 600px;
+    width: 600px;
+    box-shadow: #cbf1b2 0px 5px 15px;
+    margin:0 auto;
+    margin-bottom: 300px;
+}
+
+.labelMailConnexion,.labelPasswordConnexion{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelMailConnexion p,.labelPasswordConnexion p{
+    font-size: 25px;
+}
+
+.inputMailConnexion,.inputPasswordConnexion{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputMailConnexion input,.inputPasswordConnexion input{
+   height: 70%;
+   width: 60%;
+   font-size: 23px;
+}
+
+.msgErreurFormConnexion{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: red;
+    text-align: center;
+}
+
+.btnValiderConnexion{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnValiderConnexion button{
+    border: #cbf1b2 1px solid;
+    border-radius: 45%;
+    color: #cbf1b2;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 25px;
+    transition: background-color  1s, color 1s ;
+}
+
+.btnValiderConnexion button:hover{
+    background-color:#cbf1b2 ;
+    color: white;
+    cursor: pointer;
+}

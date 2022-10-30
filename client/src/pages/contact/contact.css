@@ -1,7 +1,10 @@
 section {
-    height: 450px;
+    height: 500px;
     width: 100%;
     margin: 0 auto;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
   }
   
   .invisibleContact {
@@ -13,269 +16,138 @@ section {
   }
   
   .contactBasDePage {
-    height: 450px;
-    position: relative;
+    height: 500px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     background-color: #cbf1b2;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  #frereContactBasDePage {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    background-color: white;
+
+  .contactBasDePage2{
+    content:"";
     width: 100%;
     height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
   }
-  
-  .apparitionContainerContact {
-    -webkit-animation: apparitionContainerContact 1s ease-out forwards;
-            animation: apparitionContainerContact 1s ease-out forwards;
+ 
+  .hautPageContact{
+    width: 100%;
+    height: 80%;
   }
-  
-  #contactTitre1 {
-    font-size: 70px;
-    font-weight: bold;
-    height: 15%;
+
+  .basDePageContact{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+  }
+
+  .titreContact{
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    margin-top: 50px;
-    letter-spacing: 15px;
+    font-size: 80px;
+    letter-spacing: 10px;
   }
-  
-  .afficherTitreContact {
-    -webkit-animation: affichageTitreContact 1s ease-out forwards;
-            animation: affichageTitreContact 1s ease-out forwards;
-  }
-  
-  .afficherTitreContact2 {
-    -webkit-animation: affichageTitreContact 1s ease-out forwards;
-            animation: affichageTitreContact 1s ease-out forwards;
-  }
-  
-  .cacherTitreContact {
-    -webkit-animation: cacherTitreContact 1s ease-out forwards;
-            animation: cacherTitreContact 1s ease-out forwards;
-  }
-  
-  #logoContact {
-    height: 45%;
-    width: 40%;
+
+  .photoContact{
+    width: 50%;
+    height: 40%;
+    text-align: center;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
-    color: black;
-    position: relative;
+    color: white;
+    font-size: 80px;
+    margin: 0 auto;
+    transform: translateX(150%);
   }
-  #logoContact div:nth-child(1) {
-    height: 45px;
-    width: 45px;
-    background-color: #cbf1b2;
-    position: relative;
-    transform: translateX(1400px);
+
+  .photoContact img{
+      height: 80px;
+      
   }
-  #logoContact div:nth-child(1) img {
-    height: 75px;
-    position: absolute;
-    background-color: #cbf1b2;
-    top: -30px;
-    left: -17px;
-    transition: all 0.8s;
+
+
+  .contenuContact{
+    width: 50%;
+    height: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: 25px;
+    transform: translateX(150%);
+    margin: 0 auto;
   }
-  #logoContact div:nth-child(1) img:hover {
-    cursor: pointer;
-    transform: rotateZ(360deg);
+
+  .contenuContact p:nth-child(3){
+    margin-right: 30px;
   }
-  #logoContact div:nth-child(2) {
-    height: 110px;
-    width: 100px;
-    overflow: hidden;
-    position: relative;
-    transform: translateX(1400px);
-  }
-  #logoContact div:nth-child(2) img {
-    height: 73px;
-    background-color: white;
-    position: absolute;
-    top: 30%;
-    left: 30px;
-    transition: all 0.8s;
-  }
-  #logoContact div:nth-child(2) img:hover {
-    cursor: pointer;
-    transform: rotateZ(360deg);
-  }
-  #logoContact div:nth-child(3) {
-    height: 110px;
-    width: 90px;
-    overflow: hidden;
-    position: relative;
-    transform: translateX(1400px);
-  }
-  #logoContact div:nth-child(3) img {
-    height: 73px;
-    background-color: white;
-    position: absolute;
-    top: 30px;
-    left: 5px;
-    transition: all 0.8s;
-  }
-  #logoContact div:nth-child(3) img:hover {
-    cursor: pointer;
-    transform: rotateZ(360deg);
-  }
-  
-  .LogoContactVisible {
-    -webkit-animation: apparitionLogoContact 1s ease-out forwards;
-            animation: apparitionLogoContact 1s ease-out forwards;
-  }
-  
-  #lien {
+
+  .contenuContact p:nth-child(3) a,.contenuContact p:nth-child(2) a{
     text-decoration: none;
     color: white;
   }
-  
-  @-webkit-keyframes apparitionContainerContact {
-    0% {
-      transform: translateY(0%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+
+  .basDePageContact p{
+    width: 100%;
+    height: 60%;
+    text-align: left;
+    color: white;
+    font-size: 30px;
+    padding-left: 30px;
   }
-  
-  @keyframes apparitionContainerContact {
-    0% {
-      transform: translateY(0%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+
+
+  .ApparitionBlocContact{
+    animation: apparitionDuBlocContact 1s forwards;
   }
-  @-webkit-keyframes affichageTitreContact {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+
+  @keyframes apparitionDuBlocContact {
+    0%{transform: translateY(0%);}
+    100%{transform: translateY(-100%);}
   }
-  @keyframes affichageTitreContact {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+
+  .ApparitionLogoContact{
+    animation: apparitionLogo 1.3s forwards;
   }
-  @-webkit-keyframes affichageTitreContact2 {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+
+  @keyframes apparitionLogo {
+    0%{transform: translateX(150%);}
+    100%{transform: translateX(0%);}
   }
-  @keyframes affichageTitreContact2 {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+
+  .apparatitionDuTitreContact{
+    animation: apparitionTitreContact 1s forwards;
   }
-  @-webkit-keyframes cacherTitreContact {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+
+  @keyframes apparitionTitreContact {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
   }
-  @keyframes cacherTitreContact {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+
+  .disparitionDuTitreContact{
+    animation: disparitionTitreContact 1s forwards;
   }
-  @-webkit-keyframes apparitionLogoContact {
-    0% {
-      transform: translateX(1400px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0px);
-      opacity: 1;
-    }
+
+  @keyframes disparitionTitreContact {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
   }
-  @keyframes apparitionLogoContact {
-    0% {
-      transform: translateX(1400px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-  }
-  @-webkit-keyframes apparitionAdresseContact {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  @keyframes apparitionAdresseContact {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  @media only screen and (max-width: 1390px) {
-    #logoContact {
-      width: 60%;
-    }
-  }
-  @media only screen and (max-width: 1139px) {
-    #contactTitre1 {
-      font-size: 60px;
-    }
-  }
-  @media only screen and (max-width: 1027px) {
-    #contactTitre1 {
-      font-size: 50px;
-    }
-  }
-  @media only screen and (max-width: 920px) {
-    #logoContact {
-      width: 80%;
-    }
-    #contactTitre1 {
-      font-size: 50px;
-      height: 20%;
-    }
-  }
-  @media only screen and (max-width: 580px) {
-    #logoContact {
-      width: 100%;
-    }
-    #contactTitre1 {
-      font-size: 27px;
-      height: 9%;
-      letter-spacing: 5px;
-      margin-top: 100px;
-    }
-  }/*# sourceMappingURL=contact.css.map */

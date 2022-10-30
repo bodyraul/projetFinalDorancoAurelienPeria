@@ -3,7 +3,7 @@ import Contact from"../contact/Contact"
 export default function Accueil() {
   return (
     <div>
-        <Contact/>
+          <Contact/>
     </div>
   )
 }

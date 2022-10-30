@@ -38,7 +38,7 @@ export default function Navbar() {
             localStorage.removeItem("token");
             settoken("");
         }} to={"/connexion"}>Deconnexion </Link>
-          <span>{pseudo}</span>
+          <span id='pseudoNavbar'>{pseudo}</span>
         </nav>
      )
     }if(!token){

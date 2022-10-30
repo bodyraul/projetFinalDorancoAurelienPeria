@@ -41,13 +41,13 @@ router.post("/register",async(req,res)=>{
 router.post("/login",async(req,res)=>{
     try {
         const user = await User.findOne({email : req.body.email});
-        if(user.bannis === true){
-            return  res.status(401).json("Vous avez été bannis, vous ne pouvez plus vous connecter,créer de post ou de message.")
-        }
         if(!user){
             return res.status(400).json("Adresse mail ou mot de passe incorrect");
         }
         
+        if(user.bannis === true){
+            return  res.status(401).json("Vous avez été bannis, vous ne pouvez plus vous connecter, créer de post ou de message.")
+        }
         const matchMpw = await bcrypt.compare(req.body.password, user.password);
 
         if(!matchMpw){

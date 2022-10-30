@@ -1,0 +1,125 @@
+.formulaireInscription{
+    height: 1000px;
+    width: 800px;
+    box-shadow: #cbf1b2 0px 5px 15px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.titreFormInscription{
+    text-align: center;
+    font-size: 35px;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.titreFormInscription p{
+    padding-left: 20px;
+}
+
+.traitInscription{
+    width: 100%;
+    height: 1px;
+    background-color: #cbf1b2;
+    opacity: 0.5;
+}
+
+.saisiFormInscrition{
+    height: 90%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.labelNomPrenom,.labelPseudoMail{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.labelNomPrenom p,.labelPseudoMail p{
+    font-size: 25px;
+}
+.labelNomPrenom p span,.labelPseudoMail p span,.labelMdp p span ,.labelConfirmMdp span{
+   color: red;
+   padding-left: 5px;
+}
+
+.partieInputNomPrenom ,.partieInputPseudoMail{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.partieInputNomPrenom input,.partieInputPseudoMail input,.partieInputMdp input,.partieInputMdp input{
+    height: 40%;
+    width: 40%;
+    font-size: 25px;
+}
+
+.labelMdp,.labelConfirmMdp{
+    height: 7%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.partieInputMdp{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.partieMsgErreur,.partieBoutton{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.partieMsgErreur p{
+    color: red;
+    font-size: 30px;
+}
+
+.partieBoutton{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partieBoutton button{
+    border: #cbf1b2 1px solid;
+    border-radius: 45%;
+    color: #cbf1b2;
+    background-color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 25px;
+    transition: background-color  1s, color 1s ;
+}
+
+.partieBoutton button:hover{
+   background-color:#cbf1b2 ;
+   color: white;
+   cursor: pointer;
+}
+
+
+
