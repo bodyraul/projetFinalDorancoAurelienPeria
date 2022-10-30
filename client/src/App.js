@@ -4,7 +4,7 @@ import Accueil from './pages/Accueil/Accueil';
 import Admin from './pages/Admin/Admin';
 import Connexion from "./pages/Connexion/Connexion"
 import Inscription from './pages/Inscription/Inscription';
-import Navbar from './Component/Navbar';
+import Navbar from './Component/navbar/Navbar';
 import { AuthContext } from './Context/AuthContext';
 import { useState } from 'react';
 import SignalementMessage from './pages/Admin/SignalementMessage';
