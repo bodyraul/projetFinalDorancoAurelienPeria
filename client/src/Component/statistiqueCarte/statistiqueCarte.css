@@ -1,5 +1,5 @@
 .titreStatCarte{
-    width: 100%;
+    width: 80%;
     height: 100px;
     background-color: #cbf1b2;
     text-align: center;
@@ -8,6 +8,7 @@
     justify-content: center;
     color: white;
     font-size: 35px;
+    margin: 0 auto;
     margin-bottom: 150px;
     font-weight: bold;
 }
@@ -68,16 +69,15 @@
     text-align: right;
     padding-top: 10px;
    position: relative;
-   overflow: hidden;
  }
 
  .proportionStatCarte div p{
-    width: 100%;
+    width: 1%;
     height: 100%;
     position: absolute;
     background-color: #cbf1b2;
     top: 0%;
-    left: -100%;
+    left: -1%;
   }
 
   .explicationStat{
@@ -89,3 +89,185 @@
     font-size: 20px;
     text-align: center;
   }
+
+  .tallerParaUn{
+    animation: agrandissementParaUn 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaUn {
+    0%{width: 1%;}
+    100%{width: 80%;}
+  }
+
+  .tallerParaDeux{
+    animation: agrandissementParaDeux 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDeux {
+    0%{width: 1%;}
+    100%{width: 20%;}
+  }
+
+  .tallerParaTrois{
+    animation: agrandissementParaTrois 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaTrois {
+    0%{width: 1%;}
+    100%{width: 87%;}
+  }
+
+  .tallerParaQuatre{
+    animation: agrandissementParaQuatre 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaQuatre {
+    0%{width: 1%;}
+    100%{width: 13%;}
+  }
+
+  .tallerParaCinq{
+    animation: agrandissementParaCinq 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaCinq {
+    0%{width: 1%;}
+    100%{width: 77%;}
+  }
+
+  .tallerParaSix{
+    animation: agrandissementParaSix 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaSix {
+    0%{width: 1%;}
+    100%{width: 23%;}
+  }
+
+  .tallerParaSept{
+    animation: agrandissementParaSept 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaSept {
+    0%{width: 1%;}
+    100%{width: 49%;}
+  }
+
+  .tallerParaHuight{
+    animation: agrandissementParaHuight 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaHuight {
+    0%{width: 1%;}
+    100%{width: 51%;}
+  }
+
+  .tallerParaNeuf{
+    animation: agrandissementParaNeuf 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaNeuf {
+    0%{width: 1%;}
+    100%{width: 73%;}
+  }
+
+  .tallerParaDix{
+    animation: agrandissementParaDix 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDix {
+    0%{width: 1%;}
+    100%{width: 27%;}
+  }
+
+  .tallerParaOnze{
+    animation: agrandissementParaOnze 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaOnze {
+    0%{width: 1%;}
+    100%{width: 64%;}
+  }
+
+  .tallerParaDouze{
+    animation: agrandissementParaDouze 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDouze {
+    0%{width: 1%;}
+    100%{width: 36%;}
+  }
+
+  .tallerParaTreize{
+    animation: agrandissementParaTreize 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaTreize {
+    0%{width: 1%;}
+    100%{width: 60%;}
+  }
+
+  .tallerParaQuatorze{
+    animation: agrandissementParaQuatorze 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaQuatorze {
+    0%{width: 1%;}
+    100%{width: 40%;}
+  }
+
+  .tallerParaQuinze{
+    animation: agrandissementParaQuinze 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaQuinze {
+    0%{width: 1%;}
+    100%{width: 70%;}
+  }
+
+  .tallerParaSeize{
+    animation: agrandissementParaSeize 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaSeize {
+    0%{width: 1%;}
+    100%{width: 30%;}
+  }
+
+  .tallerParaDixsept{
+    animation: agrandissementParaDixsept 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDixsept {
+    0%{width: 1%;}
+    100%{width: 60%;}
+  }
+
+  .tallerParaDixhuight{
+    animation: agrandissementParaDixhuight 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDixhuight {
+    0%{width: 1%;}
+    100%{width: 40%;}
+  }
+
+  .tallerParaDixneuf{
+    animation: agrandissementParaDixneuf 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaDixneuf {
+    0%{width: 1%;}
+    100%{width: 58%;}
+  }
+
+  .tallerParaVinght{
+    animation: agrandissementParaVinght 2s linear forwards;
+  }
+
+  @keyframes agrandissementParaVinght {
+    0%{width: 1%;}
+    100%{width: 42%;}
+  }
+
+ 
