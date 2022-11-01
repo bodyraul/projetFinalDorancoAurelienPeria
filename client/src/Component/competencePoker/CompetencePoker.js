@@ -25,6 +25,7 @@ export default function CompetencePoker() {
     const refMotivationInvisible = useRef();
     const refMotivationVisible =useRef();
     const refTitreMotivation =useRef();
+    const traitDisparaitre = useRef();
     const  [stat1, setstat1] = useState(1);
     const  [stat2, setstat2] = useState(1);
     const  [stat3, setstat3] = useState(1);
@@ -37,16 +38,23 @@ export default function CompetencePoker() {
     const [titreCinq, settitreCinq] = useState("Motivation");
    
 
-    const cliqueEUnpremiereCompetence = (element1,element2,refTitre,titre,setTitre)=>{
+    const cliqueEUnpremiereCompetence = (element1,element2,refTitre,titre,setTitre,paravisible,paraInvisible,classeARemove,classeAAjouter,DeuxiemeClasseAajouter,setstats)=>{
         element1.current.disabled=true;
         element2.current.disabled=true;
+        paraInvisible.current.classList.remove(classeARemove);
+        paraInvisible.current.classList.add(classeAAjouter);
         element1.current.classList.add("rotationDeBaseDeux");
         element1.current.classList.remove("deuxiemeRotations");
         element1.current.classList.add("premiereRotations");
         refTitre.current.classList.remove("visible");
         refTitre.current.classList.remove("afficherParaTitreCompetencesUn");
         refTitre.current.classList.add("cacherParaTitreCompetences");
+        var tempsBarreUne = setInterval(() => {
+            setstats((Math.round(paraInvisible.current.clientWidth/paravisible.current.clientWidth*100)));
+        }, 100);
         setTimeout(() => {
+            paraInvisible.current.classList.remove(classeAAjouter);
+            paraInvisible.current.classList.add(DeuxiemeClasseAajouter);
             element2.current.classList.add("deuxiemeRotations");
             refTitre.current.classList.remove("deuxiemeTransformation");
             refTitre.current.classList.remove("cacherParaTitreCompetences");
@@ -59,17 +67,25 @@ export default function CompetencePoker() {
             element2.current.disabled=false;
             element1.current.classList.add("rotationDeBase");
             element1.current.classList.remove("premiereRotations");
+            clearInterval(tempsBarreUne);
         }, 1100);
     }
 
-    const cliqueEDeuxpremiereCompetence = (element1,element2,refTitre,titre,setTitre)=>{
+    const cliqueEDeuxpremiereCompetence = (element1,element2,refTitre,titre,setTitre,paravisible,paraInvisible,classeARemove,classeAAjouter,DeuxiemeClasseAajouter,setstats)=>{
         element2.current.disabled=true;
         element2.current.classList.add("rotationDeBaseDeux");
         element2.current.classList.remove("deuxiemeRotations");
         element2.current.classList.add("premiereRotations");
         refTitre.current.classList.remove("afficherParaTitreCompetencesUn");
         refTitre.current.classList.add("cacherParaTitreCompetences");
+        paraInvisible.current.classList.remove(classeARemove);
+        paraInvisible.current.classList.add(classeAAjouter);
+        var tempsBarreUne = setInterval(() => {
+            setstats((Math.round(paraInvisible.current.clientWidth/paravisible.current.clientWidth*100)));
+        }, 100);
         setTimeout(() => {
+            paraInvisible.current.classList.remove(classeAAjouter);
+            paraInvisible.current.classList.add(DeuxiemeClasseAajouter);
             element1.current.classList.add("deuxiemeRotations");
             refTitre.current.classList.remove("cacherParaTitreCompetences");
             refTitre.current.classList.remove("premiereTransformation");
@@ -79,6 +95,7 @@ export default function CompetencePoker() {
         },500);
         setTimeout(() => {
             element1.current.disabled=false;
+            clearInterval(tempsBarreUne);
         }, 1100);
     }
 
@@ -110,6 +127,9 @@ export default function CompetencePoker() {
         affichageStat(paraTestCinq,refTitreConcentration,refConcentrationVisible,refConcentrationInvisible,1000,1500,2000,"OnzePourCent",setstat3);
         affichageStat(paraTestSept,refTitreCompetition,refCompetitionVisible,refCompetitionInvisible,1500,2000,2500,"OnzePourCent",setstat4);
         affichageStat(paraTestNeuf,refTitreMotivation,refMotivationVisible,refMotivationInvisible,2000,2500,3000,"OnzePourCent",setstat5);
+        setTimeout(() => {
+            traitDisparaitre.current.classList.add("apparitionTraitMilieu");
+        }, 3000);
       }
     }, [visible1])
     
@@ -125,33 +145,35 @@ export default function CompetencePoker() {
             <div className='partieBulleCompetence'>
                 <div className='enteteCompetence'>
                     <div className='premiereCompetence'>
-                        <button onClick={()=>cliqueEUnpremiereCompetence(paraTestUn,paraTestDeux,refTitreAdaptation,"Patience",settitreUn)} ref={paraTestUn} className='eUnpremiereCompetence'>Adaptation</button>
-                        <button onClick={()=>cliqueEDeuxpremiereCompetence(paraTestUn,paraTestDeux,refTitreAdaptation,"Adaptation",settitreUn)}  ref={paraTestDeux} className='eDeuxpremiereCompetence'>Patience</button>
+                        <button onClick={()=>cliqueEUnpremiereCompetence(paraTestUn,paraTestDeux,refTitreAdaptation,"Patience",settitreUn,refAdaptationVisible,refAdaptationInvisible,"quinzePourCent","MoinsquinzePourCent","DouzePourCent",setstat1)} ref={paraTestUn} className='eUnpremiereCompetence'>Adaptation</button>
+                        <button onClick={()=>cliqueEDeuxpremiereCompetence(paraTestUn,paraTestDeux,refTitreAdaptation,"Adaptation",settitreUn,refAdaptationVisible,refAdaptationInvisible,"DouzePourCent","diminutionDouzePourCent","quinzePourCent",setstat1)}  ref={paraTestDeux} className='eDeuxpremiereCompetence'>Patience</button>
                     </div>
                 </div>
                 <div className='milieuCompetence'>
                     <div className='deuxiemeCompetence'>
-                        <button ref={paraTestTrois} onClick={()=>cliqueEUnpremiereCompetence(paraTestTrois,paraTestQuatre,refTitreCalme,"Emotion",settitreDeux)} className='eUnpremiereCompetence'>Calme</button>
-                        <button ref={paraTestQuatre} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestTrois,paraTestQuatre,refTitreCalme,"Calme",settitreDeux)}   className='eDeuxpremiereCompetence'>Emotion</button>
+                        <button ref={paraTestTrois} onClick={()=>cliqueEUnpremiereCompetence(paraTestTrois,paraTestQuatre,refTitreCalme,"Emotion",settitreDeux,refCalmeVisible,refCalmeInvisible,"dixPourCent","MoinsdixPourCent","treizePourCent",setstat2)} className='eUnpremiereCompetence'>Calme</button>
+                        <button ref={paraTestQuatre} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestTrois,paraTestQuatre,refTitreCalme,"Calme",settitreDeux,refCalmeVisible,refCalmeInvisible,"treizePourCent","diminutionTreizePourCent","dixPourCent",setstat2)}   className='eDeuxpremiereCompetence'>Emotion</button>
                     </div>
                     <div className='troisiemeCompetence'>
-                        <button ref={paraTestCinq} onClick={()=>cliqueEUnpremiereCompetence(paraTestCinq,paraTestSix,refTitreConcentration,"Mathématique",settitreTrois)}   className='eUnpremiereCompetence'>Concentration</button>
-                        <button ref={paraTestSix} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestCinq,paraTestSix,refTitreConcentration,"Concentration",settitreTrois)}   className='eDeuxpremiereCompetence'>Mathématique</button>
+                        <button ref={paraTestCinq} onClick={()=>cliqueEUnpremiereCompetence(paraTestCinq,paraTestSix,refTitreConcentration,"Mathématique",settitreTrois,refConcentrationVisible,refConcentrationInvisible,"OnzePourCent","diminutionOnzePourCent","treizePourCent",setstat3)}   className='eUnpremiereCompetence'>Concentration</button>
+                        <button ref={paraTestSix} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestCinq,paraTestSix,refTitreConcentration,"Concentration",settitreTrois,refConcentrationVisible,refConcentrationInvisible,"treizePourCent","diminutionTreizePourCent","OnzePourCent",setstat3)}   className='eDeuxpremiereCompetence'>Mathématique</button>
                     </div>
                     <div className='quatriemeCompetence'>
-                        <button ref={paraTestSept} onClick={()=>cliqueEUnpremiereCompetence(paraTestSept,paraTestHuigt,refTitreCompetition,"Sociable",settitreQuatre)}   className='eUnpremiereCompetence'>Compétition</button>
-                        <button ref={paraTestHuigt} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestSept,paraTestHuigt,refTitreCompetition,"Compétition",settitreQuatre)}  className='eDeuxpremiereCompetence'>Sociable</button>
+                        <button ref={paraTestSept} onClick={()=>cliqueEUnpremiereCompetence(paraTestSept,paraTestHuigt,refTitreCompetition,"Sociable",settitreQuatre,refCompetitionVisible,refCompetitionInvisible,"OnzePourCent","diminutionOnzePourCent","cinqPourCent",setstat4)}   className='eUnpremiereCompetence'>Compétition</button>
+                        <button ref={paraTestHuigt} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestSept,paraTestHuigt,refTitreCompetition,"Compétition",settitreQuatre,refCompetitionVisible,refCompetitionInvisible,"cinqPourCent","MoinsCinqPourCent","OnzePourCent",setstat4)}  className='eDeuxpremiereCompetence'>Sociable</button>
                     </div>
                 </div>
                 <div className='finCompetence'>
                     <div className='cinquiemeCompetence'>
-                        <button ref={paraTestNeuf} onClick={()=>cliqueEUnpremiereCompetence(paraTestNeuf,paraTestDix,refTitreMotivation,"Intelligence",settitreCinq)} className='eUnpremiereCompetence'>Motivation</button>
-                        <button ref={paraTestDix} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestNeuf,paraTestDix,refTitreMotivation,"Motivation",settitreCinq)}  className='eDeuxpremiereCompetence'>Intelligence</button>
+                        <button ref={paraTestNeuf} onClick={()=>cliqueEUnpremiereCompetence(paraTestNeuf,paraTestDix,refTitreMotivation,"Intelligence",settitreCinq,refMotivationVisible,refMotivationInvisible,"OnzePourCent","diminutionOnzePourCent","dixPourCent",setstat5)} className='eUnpremiereCompetence'>Motivation</button>
+                        <button ref={paraTestDix} onClick={()=>cliqueEDeuxpremiereCompetence(paraTestNeuf,paraTestDix,refTitreMotivation,"Motivation",settitreCinq,refMotivationVisible,refMotivationInvisible,"dixPourCent","MoinsdixPourCent","OnzePourCent",setstat5)}  className='eDeuxpremiereCompetence'>Intelligence</button>
                     </div>
                 </div>
             </div>
             <div className='traitMilieuCompetence'>
+                <div ref={traitDisparaitre} className='traitMilieuCompetenceDessus'>
 
+                </div>
             </div>
             <div className='GraphiqueCompetence'>
                 <div className='premiereBarreGraphique'>

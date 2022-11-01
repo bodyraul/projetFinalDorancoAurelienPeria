@@ -24,7 +24,7 @@
 
 .allCompetences{
     width: 100%;
-    height: 1000px;
+    height: 800px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -43,6 +43,17 @@
     width: 20px;
     height: 80%;
    background-color: #cbf1b2;
+   position: relative;
+   overflow: hidden;
+}
+
+.traitMilieuCompetenceDessus{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: white;
 }
 
 .GraphiqueCompetence{
@@ -191,6 +202,97 @@
     100%{opacity:1;}
 }
 
+.cinqPourCent{
+    animation: augmentationCinq 0.5s linear forwards;
+}
+
+@keyframes augmentationCinq {
+    0%{width: 1%;}
+    100%{width: 5%;}
+}
+
+.MoinsCinqPourCent{
+    animation: diminutionCinq 0.5s linear forwards;
+}
+
+@keyframes diminutionCinq {
+    0%{width: 5%;}
+    100%{width: 1%;}
+}
+
+
+.dixPourCent{
+    animation: augmentationDix 0.5s linear forwards;
+}
+
+@keyframes augmentationDix {
+    0%{width: 1%;}
+    100%{width: 10%;}
+}
+
+.MoinsdixPourCent{
+    animation: diminutionationDix 0.5s linear forwards;
+}
+
+@keyframes diminutionationDix {
+    0%{width: 10%;}
+    100%{width: 1%;}
+}
+
+.OnzePourCent{
+    animation: augmentationOnze 0.5s linear forwards;
+}
+
+@keyframes augmentationOnze {
+    0%{width: 1%;}
+    100%{width: 11%;}
+}
+
+.diminutionOnzePourCent{
+    animation: diminutionOnze 0.5s linear forwards;
+}
+
+@keyframes diminutionOnze {
+    0%{width: 11%;}
+    100%{width: 1%;}
+}
+
+.DouzePourCent{
+    animation: augmentationDouze 0.5s linear forwards;
+}
+
+@keyframes augmentationDouze {
+    0%{width: 1%;}
+    100%{width: 12%;}
+}
+
+.diminutionDouzePourCent{
+    animation: diminutionDouze 0.5s linear forwards;
+}
+
+@keyframes diminutionDouze {
+    0%{width: 12%;}
+    100%{width: 1%;}
+}
+
+.treizePourCent{
+    animation: augmentationTreize 0.5s linear forwards;
+}
+
+@keyframes augmentationTreize {
+    0%{width: 1%;}
+    100%{width: 13%;}
+}
+
+.diminutionTreizePourCent{
+    animation: diminutionTreize 0.5s linear forwards;
+}
+
+@keyframes diminutionTreize {
+    0%{width: 13%;}
+    100%{width: 1%;}
+}
+
 .quinzePourCent{
     animation: augmentationQuinze 0.5s linear forwards;
 }
@@ -207,24 +309,6 @@
 @keyframes diminutionQuinze {
     0%{width: 15%;}
     100%{width: 1%;}
-}
-
-.dixPourCent{
-    animation: augmentationDix 0.5s linear forwards;
-}
-
-@keyframes augmentationDix {
-    0%{width: 1%;}
-    100%{width: 10%;}
-}
-
-.OnzePourCent{
-    animation: augmentationOnze 0.5s linear forwards;
-}
-
-@keyframes augmentationOnze {
-    0%{width: 1%;}
-    100%{width: 11%;}
 }
 
 .cacherParaTitreCompetences{
@@ -259,5 +343,14 @@
     color: white;
     height: 100%;
     width: 100%;
+}
+
+.apparitionTraitMilieu{
+    animation: apparitionDuTraitMilieu 1s linear forwards;
+}
+
+@keyframes apparitionDuTraitMilieu {
+    0%{transform: translateY(0%);}
+    100%{transform: translateY(-100%);}
 }
 
