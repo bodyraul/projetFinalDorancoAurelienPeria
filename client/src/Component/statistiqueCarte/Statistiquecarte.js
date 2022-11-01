@@ -15,12 +15,13 @@ import { useRef } from 'react'
 import "./statistiqueCarte.css"
 
 export default function Statistiquecarte() {
- const refParaInvisible1 =useRef();const refParaVisible1 =useRef();const refParaInvisible2 =useRef();const refParaVisible2 =useRef();const refParaInvisible3 =useRef();const refParaVisible3 =useRef();const refParaInvisible4 =useRef();const refParaVisible4 =useRef();const refParaInvisible5 =useRef();const refParaVisible5 =useRef();const refParaInvisible6 =useRef();const refParaVisible6 =useRef();const refParaInvisible7 =useRef();const refParaVisible7 =useRef();const refParaInvisible8 =useRef();const refParaVisible8 =useRef();const refParaInvisible9 =useRef();const refParaVisible9 =useRef();const refParaInvisible10 =useRef();const refParaVisible10 =useRef();const refParaInvisible11 =useRef();const refParaVisible11 =useRef();const refParaInvisible12 =useRef();const refParaVisible12 =useRef();const refParaInvisible13 =useRef();const refParaVisible13 =useRef();const refParaInvisible14 =useRef();const refParaVisible14 =useRef();const refParaInvisible15 =useRef();const refParaVisible15 =useRef();const refParaInvisible16 =useRef();const refParaVisible16 =useRef();const refParaInvisible17 =useRef();const refParaVisible17 =useRef();const refParaInvisible18 =useRef();const refParaVisible18 =useRef();const refParaInvisible19 =useRef();const refParaVisible19 =useRef();const refParaInvisible20 =useRef();const refParaVisible20 =useRef();
-const [stat1, setstat1] = useState(1);const [stat2, setstat2] = useState(1);const [stat3, setstat3] = useState(1);const [stat4, setstat4] = useState(1);const [stat5, setstat5] = useState(1);const [stat6, setstat6] = useState(1);const [stat7, setstat7] = useState(1);const [stat8, setstat8] = useState(1);const [stat9, setstat9] = useState(1);const [stat10, setstat10] = useState(1);const [stat11, setstat11] = useState(1);const [stat12, setstat12] = useState(1);const [stat13, setstat13] = useState(1);const [stat14, setstat14] = useState(1);const [stat15, setstat15] = useState(1);const [stat16, setstat16] = useState(1);const [stat17, setstat17] = useState(1);const [stat18, setstat18] = useState(1);const [stat19, setstat19] = useState(1);const [stat20, setstat20] = useState(1);
+const refParaInvisible1 =useRef();const refParaVisible1 =useRef();const refParaInvisible2 =useRef();const refParaVisible2 =useRef();const refParaInvisible3 =useRef();const refParaVisible3 =useRef();const refParaInvisible4 =useRef();const refParaVisible4 =useRef();const refParaInvisible5 =useRef();const refParaVisible5 =useRef();const refParaInvisible6 =useRef();const refParaVisible6 =useRef();const refParaInvisible7 =useRef();const refParaVisible7 =useRef();const refParaInvisible8 =useRef();const refParaVisible8 =useRef();const refParaInvisible9 =useRef();const refParaVisible9 =useRef();const refParaInvisible10 =useRef();const refParaVisible10 =useRef();const refParaInvisible11 =useRef();const refParaVisible11 =useRef();const refParaInvisible12 =useRef();const refParaVisible12 =useRef();const refParaInvisible13 =useRef();const refParaVisible13 =useRef();const refParaInvisible14 =useRef();const refParaVisible14 =useRef();const refParaInvisible15 =useRef();const refParaVisible15 =useRef();const refParaInvisible16 =useRef();const refParaVisible16 =useRef();const refParaInvisible17 =useRef();const refParaVisible17 =useRef();const refParaInvisible18 =useRef();const refParaVisible18 =useRef();const refParaInvisible19 =useRef();const refParaVisible19 =useRef();const refParaInvisible20 =useRef();const refParaVisible20 =useRef();
+const titreStatCarte = useRef();
+const refAllStatCarte = useRef();
+const [stat1, setstat1] = useState(0);const [stat2, setstat2] = useState(0);const [stat3, setstat3] = useState(0);const [stat4, setstat4] = useState(0);const [stat5, setstat5] = useState(0);const [stat6, setstat6] = useState(0);const [stat7, setstat7] = useState(0);const [stat8, setstat8] = useState(0);const [stat9, setstat9] = useState(0);const [stat10, setstat10] = useState(0);const [stat11, setstat11] = useState(0);const [stat12, setstat12] = useState(0);const [stat13, setstat13] = useState(0);const [stat14, setstat14] = useState(0);const [stat15, setstat15] = useState(0);const [stat16, setstat16] = useState(0);const [stat17, setstat17] = useState(0);const [stat18, setstat18] = useState(0);const [stat19, setstat19] = useState(0);const [stat20, setstat20] = useState(0);
 
   useEffect(() => {
-   console.log(refParaInvisible14);
-   console.log(refParaVisible14);
+  
     refParaInvisible1.current.classList.add("tallerParaUn");
     refParaInvisible2.current.classList.add("tallerParaDeux");
     refParaInvisible3.current.classList.add("tallerParaTrois");
@@ -112,10 +113,10 @@ const [stat1, setstat1] = useState(1);const [stat2, setstat2] = useState(1);cons
 
   return (
     <Fragment>
-        <div className='titreStatCarte'>
+        <div ref={titreStatCarte} className='titreStatCarte'>
             <p>Statistique de combinaison de cartes de poker.</p>
         </div>
-        <div className='sectionStatCarte'>
+        <div ref={refAllStatCarte} className='sectionStatCarte '>
           <div className='ligneStat'>
               <div className='carteStatCarte'>
                   <p>

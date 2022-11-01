@@ -69,6 +69,7 @@
     text-align: right;
     padding-top: 10px;
    position: relative;
+   overflow: hidden;
  }
 
  .proportionStatCarte div p{
@@ -89,6 +90,7 @@
     font-size: 20px;
     text-align: center;
   }
+
 
   .tallerParaUn{
     animation: agrandissementParaUn 2s linear forwards;
